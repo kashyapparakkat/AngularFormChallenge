@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h3 style="text-align:center">Enrollment Form</h3>
+  <form [formGroup]="registrationForm" (ngSubmit)="onsubmit()">
+  
+  <label>Employee Name</label>
+  <small>
+  <input type="text" placeholder="Employee Name" class="form-control" formControlName="employeename" popupHeight='200px' popupWidth = '250px'
+  [ngClass]="{'is-invalid':submit && f.employeename.errors}">
+    <div *ngIf='submit && f.employeename.errors' class="invalid-feedback">
+      <div *ngIf="f.employeename.errors?.['required']">Employee Name is required</div>
+      <div *ngIf="f.employeename.errors?.['pattern']">Invalid Name</div>
+    </div>
+  </small>
+   
+    <label>Position</label>
+    <input type="text" placeholder="Position" class="form-control" formControlName="position" popupHeight='200px' popupWidth = '250px'>
+   
+   
+    <label>Office Location</label>
+    <small>
+      <input type="text" placeholder="Office Location" class="form-control" formControlName="officelocation" popupHeight='200px' popupWidth = '250px'>
+    </small>
+   
+    
+    
+    <label>Salary</label>
+    <small>
+      <input type="number" placeholder="Salary" class="form-control"formControlName="salary"
+      [ngClass]="{'is-invalid':submit && f.salary.errors}">
+      <div *ngIf='submit&&f.salary.errors' class="invalid-feedback">
+        <div *ngIf="f.salary.errors?.['required']">salary is required</div>
+        <div *ngIf="f.salary.errors?.['pattern']">Invalid salary</div>
+      </div>
+    </small>
+    
+<br>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    </div>

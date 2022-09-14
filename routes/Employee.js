@@ -36,8 +36,11 @@ router.get("/get-student-details", async function (req, res) {
 
 // create Scenario api
 router.post("/add-employee", async (req, res) => {
+
     try {
-        console.log("User email -- " + req.body.email);
+        res.header("Access-Control-Allow-Origin",'*');
+        res.header("Access-Control-Allow-method:GET,POST,PUT,DELETE");
+        // console.log("User email -- " + req.body.email);
 
         let uID = uniqueID();
 
@@ -47,7 +50,7 @@ router.post("/add-employee", async (req, res) => {
             position: req.body.position,
             /*username: req.body.username,*/
             office: req.body.office,
-            location: req.body.location,
+            // location: req.body.location,
             salary: req.body.salary,
             //dob: req.body.dob,
 
@@ -76,32 +79,6 @@ router.post("/add-employee", async (req, res) => {
 });
 
 
-router.get("/validate-student-details", async function (req, res) {
-    try {
-        const contract = employee
-            .findOne({email: req.email})
-            .then((data) => {
-                if (data) {
-                    res.status(200);
-                    res.json(data);
-                } else {
-                    res.status(404);
-                    res.json({
-                        message: ["user not found"],
-                    });
-                }
-            })
-            .catch((err) => {
-                console.log("Error:", err);
-                res.json(err);
-            });
-    }
-    catch (err)
-    {
-        console.log("error", err)
-        res.status(500)
-        res.json(err);
-    }
-});
+
 
 module.exports = router;

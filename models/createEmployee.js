@@ -13,9 +13,6 @@ var employeeDetails = new mongoose.Schema({
     office: {
         type: String,
     },
-    location: {
-        type: String,
-    },
     salary: {
         type: Number,
     },
