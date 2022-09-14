@@ -2,8 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
-const studentData = require("./Student");
+const employeeData = require("./Employee");
 
-router.use(studentData);
+router.use(employeeData);
 
 module.exports = router;
