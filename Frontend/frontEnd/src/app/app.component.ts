@@ -31,13 +31,14 @@ get f(){
 
 onsubmit(){
   this.submit = true
-  this.employeeservice.postEmployee((JSON.stringify(this.registrationForm)))
+  this.employeeservice.postEmployee(this.registrationForm.value)
+  alert("Employee added successfully!!!")
   console.log("clicked")
   console.log('f', this.f)
-  
+
 }
 ngOnInit(): void {
-  
+
 
   }
 }

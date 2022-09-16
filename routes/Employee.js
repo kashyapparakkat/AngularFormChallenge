@@ -46,10 +46,10 @@ router.post("/add-employee", async (req, res) => {
 
         const apicontract = new employee({
             id: uID,
-            name: req.body.name,
+            name: req.body.employeename,
             position: req.body.position,
             /*username: req.body.username,*/
-            office: req.body.office,
+            office: req.body.officelocation,
             // location: req.body.location,
             salary: req.body.salary,
             //dob: req.body.dob,
